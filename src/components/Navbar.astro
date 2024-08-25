@@ -1,0 +1,51 @@
+---
+const links = [
+  { href: "/", text: "Home" },
+  { href: "/gallery", text: "Gallery" },
+  { href: "/services", text: "Services" },
+  { href: "/contact", text: "Contact" },
+];
+---
+
+<nav
+  class="flex relative justify-between items-center p-4 bg-gray-800 text-white z-10"
+>
+  <div class="text-xl font-bold">Alfredes</div>
+  <div class="hidden md:flex gap-4">
+    {
+      links.map((link) => (
+        <a href={link.href} class="text-white no-underline">
+          {link.text}
+        </a>
+      ))
+    }
+  </div>
+
+  <div class="flex flex-col cursor-pointer md:hidden" id="hamburger">
+    <div class="w-6 h-0.5 bg-white my-1"></div>
+    <div class="w-6 h-0.5 bg-white my-1"></div>
+    <div class="w-6 h-0.5 bg-white my-1"></div>
+  </div>
+</nav>
+<div
+  class="nav-links w-full transition-all duration-300 ease-in-out bg-slate-800 md:hidden absolute -translate-y-96"
+>
+  <div class="flex flex-col">
+    {
+      links.map((link) => (
+        <a href={link.href} class="text-white no-underline p-2">
+          {link.text}
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  const mobile_menu = document.querySelector(".nav-links");
+  const hamburger = document.getElementById("hamburger");
+  hamburger?.addEventListener("click", () => {
+    // mobile_menu?.classList.toggle("hidden");
+    mobile_menu?.classList.toggle("-translate-y-96");
+  });
+</script>
