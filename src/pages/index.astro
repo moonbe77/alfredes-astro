@@ -1,13 +1,16 @@
 ---
+import "@/styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import { Image } from "astro:assets";
 import image from "../assets/gallery/exterior/foto_6.jpg";
+import { CabinRental } from "@/components/cabin-rental";
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
-    <section class="h-96 relative">
+    <CabinRental client:load />
+    <!-- <section class="h-96 relative">
       <Image src={image} alt="Hero image" class="object-cover w-full h-full" />
       <div
         class="absolute top-0 left-0 h-full w-full flex justify-center items-center"
@@ -28,6 +31,6 @@ import image from "../assets/gallery/exterior/foto_6.jpg";
     </section>
     <section class="h-96 relative">
       <h2 class="text-4xl text-white">section 4</h2>
-    </section>
+    </section> -->
   </main>
 </Layout>
