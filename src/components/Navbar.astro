@@ -1,9 +1,20 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import LanguagePicker from "@/components/LanguagePicker.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+// defaultLocale is "es"
+const homeURL = getRelativeLocaleUrl(lang, "/");
+const galleryURL = getRelativeLocaleUrl(lang, "gallery");
+const contactURL = getRelativeLocaleUrl(lang, "contact");
+
 const links = [
-  { href: "/", text: "Home" },
-  { href: "/gallery", text: "Gallery" },
-  { href: "/services", text: "Services" },
-  { href: "/contact", text: "Contact" },
+  { href: homeURL, text: t("nav.home") },
+  { href: galleryURL, text: t("nav.gallery") },
+  { href: contactURL, text: t("nav.contact") },
 ];
 ---
 
@@ -11,6 +22,7 @@ const links = [
   class="flex relative justify-between items-center p-4 bg-gray-800 text-white z-10"
 >
   <div class="text-xl font-bold">Alfredes</div>
+  <LanguagePicker />
   <div class="hidden md:flex gap-4">
     {
       links.map((link) => (

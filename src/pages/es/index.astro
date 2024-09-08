@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { CabinRental } from "@/components/cabin-rental";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <h1>Bienvenido 🇦🇷</h1>
+    <CabinRental client:load />
+  </main>
+</Layout>

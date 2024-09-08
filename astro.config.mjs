@@ -11,4 +11,16 @@ export default defineConfig({
     }),
     react(),
   ],
+  i18n: {
+    locales: ["en", "es"],
+    defaultLocale: "es",
+    routing: {
+      redirectToDefaultLocale: true,
+      prefixDefaultLocale: true,
+    },
+
+    fallback: {
+      en: "es",
+    },
+  },
 });
