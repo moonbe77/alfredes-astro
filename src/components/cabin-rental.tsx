@@ -10,11 +10,11 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { CheckCircle2 } from "lucide-react";
-import Image1 from "@/assets/gallery/exterior/foto_1.jpg";
-import Image2 from "@/assets/gallery/exterior/foto_2.jpg";
-import Image3 from "@/assets/gallery/exterior/foto_3.jpg";
-import Image4 from "@/assets/gallery/exterior/foto_4.jpg";
-import Image5 from "@/assets/gallery/exterior/foto_5.jpg";
+import Image1 from "@/assets/gallery/exterior/foto_1.webp";
+import Image2 from "@/assets/gallery/exterior/foto_2.webp";
+import Image3 from "@/assets/gallery/exterior/foto_3.webp";
+import Image4 from "@/assets/gallery/exterior/foto_4.webp";
+import Image5 from "@/assets/gallery/exterior/foto_5.webp";
 
 const images = [Image1, Image2, Image3, Image4, Image5];
 
