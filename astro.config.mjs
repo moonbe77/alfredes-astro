@@ -12,15 +12,15 @@ export default defineConfig({
     react(),
   ],
   i18n: {
-    locales: ["en", "es"],
     defaultLocale: "es",
+    locales: ["en", "es"],
     routing: {
-      redirectToDefaultLocale: true,
+      redirectToDefaultLocale: false,
       prefixDefaultLocale: true,
     },
 
-    fallback: {
-      en: "es",
-    },
+    // fallback: {
+    //   en: "es",
+    // },
   },
 });
