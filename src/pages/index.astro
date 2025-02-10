@@ -1,11 +1,22 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { CabinRental } from "@/components/cabin-rental";
+import { Image } from 'astro:assets';
+import heroImage from '../assets/gallery/exterior/foto_2.jpg';
+import About from "@/components/about.astro";
 ---
 
 <Layout title="Alfredes">
   <main>
-    <h1>Bienvenido 🇦🇷</h1>
-    <CabinRental client:load />
+    <div class="w-full bg-slate-800 h-96">
+      <Image src={heroImage} alt="Alfredes"
+        class="object-cover w-full h-full"
+        />
+    </div>
+
+
+      <About
+        title="About"
+      />
+
   </main>
 </Layout>

@@ -1,11 +1,12 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { CabinRental } from "@/components/cabin-rental";
+import About from "@/components/about.astro";
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
-    <h1>Welcome 🏴󠁧󠁢󠁥󠁮󠁧󠁿</h1>
-    <CabinRental client:load />
+    <!-- <CabinRental client:load /> -->
+    <About title="About" />
   </main>
 </Layout>
