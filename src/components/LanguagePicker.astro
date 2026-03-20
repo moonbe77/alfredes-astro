@@ -1,12 +1,33 @@
 ---
-import { languages } from "../i18n/ui";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { languages, defaultLang } from "../i18n/ui";
+import { getLangFromUrl } from "../i18n/utils";
+
+const currentLang = getLangFromUrl(Astro.url);
+
+// Strip the locale prefix from the current URL to get the bare path,
+// then build locale-aware URLs so the picker links to the same page.
+function getCurrentPath(pathname: string, lang: string): string {
+  if (lang === defaultLang) return pathname;
+  return pathname.replace(`/${lang}`, "") || "/";
+}
+
+const currentPath = getCurrentPath(Astro.url.pathname, currentLang);
 ---
 
-<ul>
+<ul class="flex gap-3 list-none p-0 m-0">
   {
     Object.entries(languages).map(([lang, label]) => (
       <li>
-        <a href={`/${lang}/`}>{label}</a>
+        <a
+          href={getRelativeLocaleUrl(lang, currentPath)}
+          class:list={[
+            "text-sm text-white no-underline hover:text-gray-300 transition-colors",
+            { "font-bold underline": lang === currentLang },
+          ]}
+        >
+          {label}
+        </a>
       </li>
     ))
   }

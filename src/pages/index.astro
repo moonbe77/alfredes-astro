@@ -1,12 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { CabinRental } from "@/components/cabin-rental";
 import About from "@/components/about.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title={t("main.title")}>
   <main>
-    <!-- <CabinRental client:load /> -->
-    <About title="About" />
+    <About />
   </main>
 </Layout>

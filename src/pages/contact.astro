@@ -1,11 +1,30 @@
 ---
 import ContactForm from "@/components/contact-form";
 import Layout from "@/layouts/Layout.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const labels = {
+  title: t("contact.title"),
+  name: t("contact.name"),
+  email: t("contact.email"),
+  phone: t("contact.phone"),
+  dateRange: t("contact.dateRange"),
+  datePlaceholder: t("contact.datePlaceholder"),
+  message: t("contact.message"),
+  messagePlaceholder: t("contact.messagePlaceholder"),
+  submit: t("contact.submit"),
+  nameError: t("contact.nameError"),
+  emailError: t("contact.emailError"),
+  phoneError: t("contact.phoneError"),
+  messageError: t("contact.messageError"),
+};
 ---
 
-<Layout title="contact">
-  <main>
-    <h1>Bienvenido 🇦🇷</h1>
-    <ContactForm client:load />
+<Layout title={t("contact.title")}>
+  <main class="py-8">
+    <ContactForm client:load labels={labels} />
   </main>
 </Layout>
